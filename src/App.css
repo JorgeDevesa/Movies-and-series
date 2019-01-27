@@ -1,39 +1,186 @@
-.show-movie {
-  background:#DDD;
-  color:#222;
-  padding:2px;
-  border:1px solid #AAA;
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700,900");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, Lato, "Helvetica Neue", Helvetica, Arial;
+}
+.card {
+  width: 18rem;
+  background-color: white;
+  margin: 1.5rem;
+  box-shadow: 0px 1px 6px 0px rgba(255, 255, 255, 0.2);
+  transition: all 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+  transform: translate(0, -4px);
+}
+.title {
+  font-size: 3rem;
+  text-align: center;
+  margin-top: -10rem;
+}
+.img-container img {
+  border-radius: 5px;
+  width: 100%;
+}
+.movie-title {
+  text-align: center;
+  padding: auto;
+  margin: 0;
+}
+
+.img-container {
+  height: 18rem;
+  width: 70%;
+}
+
+.title-container {
+  height: 5rem;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  margin: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   transition: 1s;
-  animation: show-movie .5s ease-out;
-  width: 20rem;
-}
-@keyframes show-movie{
-0%{
-  opacity: 0;
-}100%{
-  opacity: 1;
-}
-}
-.show-movie:hover {
-  background:white;
-  color:black;
-  padding:8px 14px;
-  border:1px solid #888;
-  transition-property: all;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0px 2px 33px 0px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  border-width: 0;
+  font-weight: 600;
+  font-size: 13px;
+  color: black;
+  text-align: left;
   cursor: pointer;
 }
-/* .show-movie */
-/* @keyframes showMovie{
-  0%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
-    margin: 50px;
-  }
-} */
-/* .show-movie:hover{
-  background-color: green;
-} */
+
+button:hover {
+  background-color: #200e5c;
+  color: white;
+}
+
+input {
+  border: none;
+  margin: 1%;
+  transition: 1s;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0px 2px 33px 0px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  border-width: 0;
+  font-weight: 600;
+  font-size: 13px;
+  color: #bcbcbc !important;
+  text-align: left;
+}
+input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+input::placeholder {
+  color: white;
+}
+.header {
+  background-image: url("/images/fondo-movies.png");
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: -20rem;
+}
+
+.search-box {
+  width: 30rem;
+}
+
+.search-box:focus {
+  outline: none;
+  width: 30rem;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.search-box::placeholder {
+  color: white;
+}
+
+.movie-details-card {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 80vw;
+  height: 70vh;
+  border-radius: 15px;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.movie-details-card img {
+  border-radius: 15px;
+  margin: 2rem 2rem 0 2rem;
+  width: 15rem;
+}
+
+.row {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-details {
+  width: 70%;
+}
+
+.login-inputs{
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 25rem;
+  margin: 1rem;
+}
+.login-button{
+  display:block;
+  margin: 2rem auto;
+  width: 6rem;
+  text-align: center;
+  background-color: rgba(255,255,255,0.6);
+  color: black !important;
+}
+.login-button:hover{
+  background-color: #200e5c;
+  color: white !important;
+  cursor: pointer;
+}
+
+.top{
+  margin-top:-2rem;
+}

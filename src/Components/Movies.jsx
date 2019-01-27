@@ -10,49 +10,52 @@ export default class Movies extends Component {
     this.state = {
       user: this.props.user,
       movies: null,
-      showMovieDetails: null
+      result: null,
+      type: "movie"
     };
   }
 
-  showMovies = (e, page=1) => {
+  showMovies = (e, page = 1) => {
     const value = e.target.value;
     const type = e.target.name;
     axios
-      .get(`${process.env.REACT_APP_IMDB_API}&s=${value}&type=${type}&page=${page}`)
+      .get(
+        `${process.env.REACT_APP_IMDB_API}&s=${value}&type=${type}&page=${page}`
+      )
       .then(movies => {
         if (movies.data.Response)
-          this.setState({ ...this.state, movies: movies.data.Search });
+          this.setState({
+            ...this.state,
+            movies: movies.data.Search,
+            results: movies.data.totalResults
+          });
       })
       .catch();
   };
-  showMoviesDetails = id => {
-    axios.get(`${process.env.REACT_APP_IMDB_API}&i=${id}`).then(response => {
-      this.setState({ ...this.state, showMovieDetails: response.data });
-      console.log(this.state.showMovieDetails);
-    });
-  };
 
   render() {
+
     const moviesArr = this.state.movies;
     const ShowMoviesFound = moviesArr ? (
-      <div>
+      <div className="container">
         {moviesArr.map((movie, index) => {
           return (
             <CardMovie
               key={index}
               movie={movie}
-              showMoviesDetails={this.showMoviesDetails}
+              showMoviesDetails={this.props.showMoviesDetails}
             />
           );
         })}
       </div>
     ) : (
-      <h1>No se ha encontrado ningún título</h1>
+      <h1 className="movie-title">No se ha encontrado ningún resultado</h1>
     );
 
     const Movies = this.state.showMovieDetails ? (
-      <MovieDetails 
-      showMovieDetails={this.state.showMovieDetails}
+      <MovieDetails
+        showMovieDetails={this.state.showMovieDetails}
+        returnToAllMovies={this.returnToAllMovies}
       />
     ) : (
       ShowMoviesFound
@@ -60,14 +63,15 @@ export default class Movies extends Component {
 
     return (
       <div>
-        <h1>Movies</h1>
-        <SearchBox
-          className="input"
-          placeholder="Search Movies"
-          type="text"
-          showMovies={this.showMovies}
-          name="movie"
-        />
+        <header className="header">
+          <h1 className="title">Movies</h1>
+          <SearchBox
+            placeholder="Search Movies"
+            type="text"
+            showMovies={this.showMovies}
+            name="movie"
+          />
+        </header>
         {Movies}
       </div>
     );

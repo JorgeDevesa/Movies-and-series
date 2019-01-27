@@ -5,7 +5,8 @@ export default class SearchBox extends Component {
     return (
       <div>
         <input
-          className={this.props.inputClass}
+          className="search-box"
+          autoComplete="off"
           type={this.props.type}
           placeholder={this.props.placeholder}
           value={this.props.value}
