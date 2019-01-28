@@ -95,8 +95,12 @@ input {
 input:focus {
   outline: none;
   background-color: rgba(255, 255, 255, 0.6);
+  color: white;
 }
 input::placeholder {
+  color: white;
+}
+input::value {
   color: white;
 }
 .header {
@@ -127,6 +131,7 @@ input::placeholder {
   outline: none;
   width: 30rem;
   background-color: rgba(255, 255, 255, 0.6);
+  color: white;
 }
 .search-box::placeholder {
   color: white;

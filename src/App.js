@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Movies from "./Components/Movies";
 import Series from "./Components/Series";
 import Login from "./Components/Login";
