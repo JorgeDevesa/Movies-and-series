@@ -12,20 +12,17 @@ export default class MovieDetails extends Component {
             <div className="img-details">
               <img src={movie.Poster} />
               <div className="row">
-                <h3>Rating: {movie.imdbRating}</h3>
+                <h3>Rating: {movie.imdbRating}-</h3>
                 <h3>Votes: {movie.imdbVotes}</h3>
               </div>
             </div>
             <div className="movie-details">
-              <h1>{movie.Title}</h1>
-              <Link to="/">
-                <button>Volver</button>
-              </Link>
-              <p>{movie.Year}</p>
-              <p>{movie.Runtime}</p>
-              <p>{movie.Director}</p>
-              <p>{movie.Actors}</p>
-              <p>{movie.Plot}</p>
+              <h1>{movie.Title}.</h1>
+              <p>{movie.Year}.</p>
+              <p>{movie.Runtime}.</p>
+              <p><b>Director: </b> {movie.Director}.</p>
+              <p><b>Cast: </b>{movie.Actors}.</p>
+              <p><b>Plot: </b>{movie.Plot}</p>
             </div>
           </div>
         </div>

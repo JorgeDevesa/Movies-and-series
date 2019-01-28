@@ -27,10 +27,11 @@ class App extends Component {
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({ ...this.state, [name]: value });
+
   };
 
   showMoviesDetails = id => {
-    axios.get(`${process.env.REACT_APP_IMDB_API}&i=${id}`).then(response => {
+    axios.get(`${process.env.REACT_APP_IMDB_API}&i=${id}&plot=full`).then(response => {
       this.setState({ ...this.state, showMovieDetails: response.data });
     });
   };
@@ -40,7 +41,7 @@ class App extends Component {
   };
 
   favoriteMovies = movie => {
-    this.state.favoriteMovies.push(movie);
+   this.state.favoriteMovies.push(movie);
   };
   render() {
     const userAuthorization = this.state.user ? (

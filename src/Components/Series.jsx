@@ -41,7 +41,7 @@ export default class Series extends Component {
             <CardMovie
               key={index}
               movie={movie}
-              favoriteseries={this.props.favoriteseries}
+              favoriteMovies={this.props.favoriteMovies}
               showMoviesDetails={this.props.showMoviesDetails}
             />
           );

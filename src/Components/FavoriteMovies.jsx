@@ -7,7 +7,7 @@ export default class FavoriteMovies extends Component {
     const favoriteMovies = this.props.favoriteMovies
     const favoriteCards = favoriteMovies.length>0 ? 
     (
-      <div className="container">
+      <div className="favorites-container">
       {favoriteMovies.map((movie, index)=>{
           return (
             <CardMovie
@@ -27,7 +27,7 @@ export default class FavoriteMovies extends Component {
       <div>
         <NavBar />
         <div className="header">
-          <h1>Favorites</h1>
+          <h1 className="title">Favorites</h1>
           {favoriteCards}
         </div>
       </div>

@@ -156,7 +156,12 @@ input::placeholder {
 }
 
 .movie-details {
-  width: 70%;
+  width: 60%;
+  margin-top: 3rem;
+  margin-right: 5rem;
+}
+.movie-details p{
+  margin: 1.5rem;
 }
 
 .login-inputs {
@@ -219,3 +224,8 @@ input::placeholder {
   border-bottom: 1px solid white;
 }
 
+.favorites-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
