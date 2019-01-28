@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import SearchBox from "./SearchBox";
 import CardMovie from "./CardMovie";
-import MovieDetails from "./MovieDetails";
 import axios from "axios";
-
+import NavBar from "./NavBar";
 export default class Movies extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +14,7 @@ export default class Movies extends Component {
     };
   }
 
-  showMovies = (e, page = 1) => {
+  showMovies = (e, page=1) => {
     const value = e.target.value;
     const type = e.target.name;
     axios
@@ -34,7 +33,6 @@ export default class Movies extends Component {
   };
 
   render() {
-
     const moviesArr = this.state.movies;
     const ShowMoviesFound = moviesArr ? (
       <div className="container">
@@ -43,26 +41,20 @@ export default class Movies extends Component {
             <CardMovie
               key={index}
               movie={movie}
+              favoriteMovies={this.props.favoriteMovies}
               showMoviesDetails={this.props.showMoviesDetails}
             />
           );
         })}
       </div>
     ) : (
-      <h1 className="movie-title">No se ha encontrado ningún resultado</h1>
+      <h1 className="movie-title">No results</h1>
     );
 
-    const Movies = this.state.showMovieDetails ? (
-      <MovieDetails
-        showMovieDetails={this.state.showMovieDetails}
-        returnToAllMovies={this.returnToAllMovies}
-      />
-    ) : (
-      ShowMoviesFound
-    );
 
     return (
       <div>
+        <NavBar />
         <header className="header">
           <h1 className="title">Movies</h1>
           <SearchBox
@@ -72,7 +64,7 @@ export default class Movies extends Component {
             name="movie"
           />
         </header>
-        {Movies}
+        {ShowMoviesFound}
       </div>
     );
   }

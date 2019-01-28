@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import "./App.css";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Movies from "./Components/Movies";
+import Series from "./Components/Series";
 import Login from "./Components/Login";
-import Favorites from "./Components/Favorites";
+import FavoriteMovies from "./Components/FavoriteMovies";
 import MovieDetails from "./Components/MovieDetails";
 import axios from "axios";
 
@@ -14,19 +15,20 @@ class App extends Component {
       user: null,
       favoriteMovies: null,
       movies: [],
-      showMovieDetails: null
+      showMovieDetails: null,
+      favoriteMovies: []
     };
   }
-  
+
   getUser = user => {
     this.setState({ ...this.state, user: user });
   };
-  
+
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({ ...this.state, [name]: value });
   };
-  
+
   showMoviesDetails = id => {
     axios.get(`${process.env.REACT_APP_IMDB_API}&i=${id}`).then(response => {
       this.setState({ ...this.state, showMovieDetails: response.data });
@@ -37,6 +39,9 @@ class App extends Component {
     this.setState({ ...this.state, showMovieDetails: null });
   };
 
+  favoriteMovies = movie => {
+    this.state.favoriteMovies.push(movie);
+  };
   render() {
     const userAuthorization = this.state.user ? (
       <Switch>
@@ -49,6 +54,20 @@ class App extends Component {
               getUser={this.getUser}
               handleChange={this.handleChange}
               showMoviesDetails={this.showMoviesDetails}
+              favoriteMovies={this.favoriteMovies}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/series"
+          render={() => (
+            <Series
+              user={this.state.user}
+              getUser={this.getUser}
+              handleChange={this.handleChange}
+              showMoviesDetails={this.showMoviesDetails}
+              favoriteMovies={this.favoriteMovies}
             />
           )}
         />
@@ -62,7 +81,16 @@ class App extends Component {
             />
           )}
         />
-        <Route exact path="/favorites" component={Favorites} />
+        <Route
+          exact
+          path="/favorites"
+          render={() => (
+            <FavoriteMovies
+              favoriteMovies={this.state.favoriteMovies}
+              showMoviesDetails={this.showMoviesDetails}
+            />
+          )}
+        />
       </Switch>
     ) : (
       <Route
