@@ -12,7 +12,7 @@ No está completamente cerrado, por lo que recomiendo su uso, por ahora, en modo
 ## Instrucciones de la app. 
 
     - Al abrir, aparecerá un login. Introduce un nombre de usuario y contraseña. 
-      Dado que se trata de un login estático, no es necesario haberse registrado anteriormente. 
+      Dado que se trata de un login estático de prueba, no es necesario haberse registrado anteriormente. 
       
     - El Login redirigirá a la sección "Movies" donde encontrarás un input que permite buscar las películas que desees. 
       La search box es dinámica, por lo que no es necesario pulsar ningún botón. 
@@ -25,8 +25,4 @@ No está completamente cerrado, por lo que recomiendo su uso, por ahora, en modo
     
     - Por último, podrás ver los elementos que hayas guardado en favoritos. 
     
- ### Notas. 
- 
-El almacenamiento de la información (usuario, sesión películas favoritas o series favoritas) se hace a través del estado de React y no a través del localStorage, por lo que es necesario no refrescar la página para no perder esa información. 
 
-    
